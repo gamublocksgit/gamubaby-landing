@@ -1,2 +1,2 @@
-# gamubaby.github.io
+# gamubaby-landing
 Gamu Baby Landing Page
