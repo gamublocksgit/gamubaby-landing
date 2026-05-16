@@ -130,9 +130,14 @@ function Nav({ t, lang, setLang }) {
           <a href="#pro">{t.nav.pro}</a>
         </nav>
         <div className="nav-right">
-          <div className="lang" role="tablist" aria-label="Language">
-            <button className={lang === "en" ? "on" : ""} onClick={() => setLang("en")} role="tab" aria-selected={lang === "en"}>EN</button>
-            <button className={lang === "ja" ? "on" : ""} onClick={() => setLang("ja")} role="tab" aria-selected={lang === "ja"}>日本語</button>
+          <div className="lang" aria-label="Language">
+            <select value={lang} onChange={(e) => setLang(e.target.value)} aria-label="Language">
+              <option value="en">EN</option>
+              <option value="ja">日本語</option>
+              <option value="pt">PT</option>
+              <option value="es">ES</option>
+              <option value="ko">한국어</option>
+            </select>
           </div>
           <a className="btn btn-primary hide-sm" href="https://play.google.com/store/apps/details?id=com.gamublocks.gamubaby">
             <Icon.Play/> {t.nav.get}
@@ -564,7 +569,14 @@ function App() {
 
       <TweaksPanel>
         <TweakSection label="Language"/>
-        <TweakRadio label="Language" value={tweak.lang} options={["en","ja"]}
+        <TweakSelect label="Language" value={tweak.lang}
+          options={[
+            { value: "en", label: "English" },
+            { value: "ja", label: "日本語" },
+            { value: "pt", label: "Português" },
+            { value: "es", label: "Español" },
+            { value: "ko", label: "한국어" },
+          ]}
           onChange={(v) => setTweak("lang", v)}/>
         <TweakSection label="Look"/>
         <TweakColor label="Accent"

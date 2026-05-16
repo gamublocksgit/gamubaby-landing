@@ -109,11 +109,14 @@
     display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.5);
     padding:3px;gap:0;font-size:12px;font-weight:600;letter-spacing:.04em;
   }
-  .lang button{
-    appearance:none;border:0;background:transparent;color:var(--muted);padding:6px 12px;border-radius:999px;cursor:pointer;font:inherit;
-    transition:all .2s;
+  .lang select{
+    appearance:none;-webkit-appearance:none;border:0;background:transparent;
+    font:inherit;font-size:13px;font-weight:600;color:var(--ink);
+    padding:6px 28px 6px 14px;border-radius:999px;cursor:pointer;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' stroke='%232f2620' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat:no-repeat;background-position:right 10px center;
   }
-  .lang button.on{background:var(--ink);color:#fbf8f1}
+  .lang select:focus{outline:none}
   @media (max-width:760px){.nav-links{display:none}}
 
   /* ── Buttons ────────────────────────────────────────────────── */
