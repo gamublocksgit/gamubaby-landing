@@ -2,7 +2,7 @@
 
 The marketing site for **Gamu Baby**, a private, offline-first baby tracker for Android.
 
-🌐 **Live site:** https://gamublocksgit.github.io/gamubaby-landing/
+🌐 **Live site:** https://gamubaby.gamublocks.com/
 📱 **Get the app:** https://play.google.com/store/apps/details?id=com.gamublocks.gamubaby
 
 ## About Gamu Baby
