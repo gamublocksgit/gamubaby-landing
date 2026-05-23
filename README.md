@@ -1,35 +1,46 @@
-# Gamu Baby — Landing Page
+# Gamu Baby - Landing Page
 
-The marketing site for **Gamu Baby**, a private, offline-first baby tracker for Android.
+Static Astro landing page for **Gamu Baby**, a private, offline-first Android baby milestone and diary tracker.
 
-🌐 **Live site:** https://gamubaby.gamublocks.com/
-📱 **Get the app:** https://play.google.com/store/apps/details?id=com.gamublocks.gamubaby
+- Live site: https://gamubaby.gamublocks.com/
+- Google Play: https://play.google.com/store/apps/details?id=com.gamublocks.gamubaby
 
-## About Gamu Baby
+## Stack
 
-Gamu Baby is a calm, private record for the things that actually happen — feeding, diapers, sleep, growth, photos, and 142 developmental milestones from birth to 60 months. No account, no cloud sync, no ads. Everything lives on your phone.
+- Astro static output
+- Custom HTML/CSS components
+- Google Fonts: Newsreader, DM Sans, JetBrains Mono
+- GitHub Pages with custom domain
+- No backend, forms, checkout, account, analytics, or user-data collection
 
-## About this site
+## Commands
 
-A single-page, bilingual (EN / 日本語) landing page built with plain HTML, CSS, and React (via Babel standalone). No build step, no framework — opens in any browser by just loading `index.html`.
-
-### Stack
-
-- HTML + CSS (custom, no framework)
-- React 18 + Babel standalone (in-browser JSX compile)
-- Newsreader + DM Sans (Google Fonts)
-- Static assets only — no backend
-
-### Project structure
-
+```bash
+npm install
+npm run dev
+npm run build
+npm run preview
 ```
-index.html          ← page shell, fonts, styles
-main.jsx            ← React components (Nav, Hero, Features, Privacy, Pro, Footer)
-copy.jsx            ← EN + JP copy
-tweaks-panel.jsx    ← live design tweaks panel
-assets/             ← logo + app screenshots
+
+`npm run build` generates optimized WebP copies of PNG screenshots, builds static HTML into `dist/`, and copies `public/CNAME` to the published output.
+
+## Project Structure
+
+```text
+astro.config.mjs          Astro static config for gamubaby.gamublocks.com
+public/CNAME              GitHub Pages custom domain
+public/assets/            App icon and screenshots
+src/components/           Static landing page components
+src/data/                 Locale copy, SEO data, route data
+src/layouts/              Shared metadata/layout shell
+src/pages/                Homepage, localized pages, SEO pages, robots, sitemap
+src/styles/global.css     Visual system ported from the previous static page
 ```
+
+## GitHub Pages
+
+Deployment uses `.github/workflows/deploy.yml` with the official Astro GitHub Pages action. In repository settings, Pages should use **GitHub Actions** as the source. The site remains a static marketing/info page and sends install traffic to Google Play.
 
 ## License
 
-© 2026 Gamu Baby. All rights reserved.
+Copyright 2026 Gamu Baby. All rights reserved.

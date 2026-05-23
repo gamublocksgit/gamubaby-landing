@@ -1,0 +1,9 @@
+---
+import LandingPage from "../../components/LandingPage.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site } from "../../data/site";
+---
+
+<BaseLayout locale="ja" title={site.title} description={site.description} path="/ja/" localized>
+  <LandingPage locale="ja" />
+</BaseLayout>

@@ -1,13 +1,10 @@
-// Bilingual copy. English first, with Japanese variants for hero, privacy and CTA
-// as specified in the brief. The brand name "Gamu Baby" is never translated.
-
-const COPY = {
+﻿export const copy = {
   en: {
     nav: { features: "Features", privacy: "Privacy", pro: "Pro", get: "Get Gamu Baby" },
     hero: {
-      eyebrow: "Offline-first baby tracker",
-      h1: "Private baby tracking for everyday care and tiny milestones.",
-      sub: "Log feeding, diapers, sleep, growth, photos, and memories without an account or cloud sync.",
+      eyebrow: "Offline-first Android baby tracker",
+      h1: "Private baby milestone and diary tracking for Android.",
+      sub: "Track baby milestones, feeding, diapers, sleep, growth, photos, and memories offline. No account, cloud sync, or ads.",
       primary: "Download on Google Play",
       secondary: "See how it works",
       trust: ["Offline-first", "No account", "No ads", "One-time Pro"],
@@ -508,4 +505,6 @@ const COPY = {
   },
 };
 
-window.COPY = COPY;
+
+export type Locale = keyof typeof copy;
+

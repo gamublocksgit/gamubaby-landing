@@ -1,0 +1,22 @@
+# Private planning and research docs
+docs/
+DESIGN.md
+PRODUCT.md
+
+# Build output and dependencies
+dist/
+node_modules/
+.astro/
+
+# Local reports and environment
+reports/
+.env*
+public/assets/*.webp
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.log

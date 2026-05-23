@@ -1,0 +1,137 @@
+---
+import "../styles/global.css";
+import { languageTags, locales, site } from "../data/site";
+import type { Locale } from "../data/copy";
+
+interface Props {
+  locale?: Locale;
+  title?: string;
+  description?: string;
+  path?: string;
+  localized?: boolean;
+  breadcrumbs?: Array<{ name: string; url: string }>;
+}
+
+const {
+  locale = "en",
+  title = site.title,
+  description = site.description,
+  path = "/",
+  localized = false,
+  breadcrumbs = [],
+} = Astro.props;
+
+const canonical = new URL(path, site.origin).toString();
+const absoluteImage = new URL(site.image, site.origin).toString();
+const pageName = title === site.title ? title : `${title} | ${site.name}`;
+const alternates = localized
+  ? Object.entries(locales).map(([code, data]) => ({
+      code: code as Locale,
+      href: new URL(data.path, site.origin).toString(),
+    }))
+  : [];
+
+const softwareApplication = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Gamu Baby",
+  applicationCategory: "LifestyleApplication",
+  operatingSystem: "Android",
+  url: site.origin + "/",
+  downloadUrl: site.playUrl,
+  installUrl: site.playUrl,
+  description: site.description,
+  inLanguage: Object.values(languageTags),
+  image: [
+    new URL("/assets/01-milestones.png", site.origin).toString(),
+    new URL("/assets/03-diary.png", site.origin).toString(),
+    new URL("/assets/04-journey.png", site.origin).toString(),
+  ],
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "JPY",
+    availability: "https://schema.org/InStock",
+    url: site.playUrl,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Gamu Blocks",
+    url: "https://www.gamublocks.com/",
+  },
+};
+
+const webPage = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: pageName,
+  url: canonical,
+  description,
+  isPartOf: {
+    "@type": "WebSite",
+    name: site.name,
+    url: site.origin + "/",
+  },
+  about: {
+    "@type": "SoftwareApplication",
+    name: "Gamu Baby",
+  },
+};
+
+const breadcrumbJson =
+  breadcrumbs.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: breadcrumbs.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: item.name,
+          item: new URL(item.url, site.origin).toString(),
+        })),
+      }
+    : null;
+
+const jsonLd = breadcrumbJson
+  ? [softwareApplication, webPage, breadcrumbJson]
+  : [softwareApplication, webPage];
+---
+
+<!doctype html>
+<html lang={languageTags[locale]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{pageName}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {alternates.map((alt) => (
+      <link rel="alternate" hreflang={languageTags[alt.code]} href={alt.href} />
+    ))}
+    {localized && <link rel="alternate" hreflang="x-default" href={site.origin + "/"} />}
+    <meta property="og:title" content={pageName} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={absoluteImage} />
+    <meta property="og:site_name" content={site.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageName} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteImage} />
+    <meta name="theme-color" content={site.themeColor} />
+    <link rel="icon" type="image/png" href="/assets/logo.png" />
+    <link rel="apple-touch-icon" href="/assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+  </body>
+</html>
