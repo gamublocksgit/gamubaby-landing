@@ -204,8 +204,8 @@
   pt: {
     nav: { features: "Recursos", privacy: "Privacidade", pro: "Pro", get: "Obter Gamu Baby" },
     hero: {
-      eyebrow: "Rastreador de bebé offline",
-      h1: "Registo privado do dia a dia e dos pequenos marcos do seu bebé.",
+      eyebrow: "Rastreador de bebê offline",
+      h1: "Registo privado do dia a dia e dos pequenos marcos do seu bebê.",
       sub: "Registe amamentação, fraldas, sono, crescimento, fotografias e memórias sem conta nem sincronização na nuvem.",
       primary: "Descarregar no Google Play",
       secondary: "Ver como funciona",
@@ -216,7 +216,7 @@
       h2: "Abrir a app. Um toque. Pronto.",
       sub: "Sem labirinto de onboarding, sem email, sem assistente de configuração. Gamu Baby foi feito para mãos cansadas às 3 da manhã.",
       steps: [
-        { t: "Crie um perfil do bebé", d: "Nome, data de nascimento, foto opcional. Adicione quantos bebés a sua família precisar.", time: "~20 seg" },
+        { t: "Crie um perfil do bebê", d: "Nome, data de nascimento, foto opcional. Adicione quantos bebês a sua família precisar.", time: "~20 seg" },
         { t: "Registe o primeiro evento", d: "Uma mamada, uma fralda, uma sesta. Um toque no ecrã inicial e fica gravado.", time: "~5 seg" },
         { t: "Veja a linha do dia", d: "Tudo o que registou, por ordem, pronto a partilhar com o parceiro ou o pediatra.", time: "Instantâneo" },
       ],
@@ -239,7 +239,7 @@
     },
     privacy: {
       eyebrow: "Privacidade por design",
-      h2: "Os dados do seu bebé continuam seus.",
+      h2: "Os dados do seu bebê continuam seus.",
       sub: "Sem contas para esquecer. Sem sincronização em segundo plano. Sem redes de publicidade a ver o seu filho crescer. Gamu Baby foi feito com uma única regra: nada sai do telefone a não ser que o envie.",
       items: [
         { t: "Guardado no seu dispositivo", d: "Registos, fotos e notas ficam no armazenamento local do telefone — em mais lado nenhum." },
@@ -257,7 +257,7 @@
           { k: "SDKs de anúncios", v: "0" },
           { k: "Sync na nuvem", v: "Desligado por defeito" },
         ],
-        never: ["Nunca lemos os seus registos.", "Nunca vendemos dados de bebés.", "Nunca exigimos login."],
+        never: ["Nunca lemos os seus registos.", "Nunca vendemos dados de bebês.", "Nunca exigimos login."],
       },
     },
     care: {
@@ -278,7 +278,7 @@
       once: "",
       feat: [
         "Registos de diário avançados (crescimento, marcações de saúde, temporizador)",
-        "Vários perfis de bebé para gémeos e irmãos",
+        "Vários perfis de bebê para gémeos e irmãos",
         "Cartões de marco partilháveis",
         "Exportação PDF para o pediatra",
         "PDF de Resumo Anual",
